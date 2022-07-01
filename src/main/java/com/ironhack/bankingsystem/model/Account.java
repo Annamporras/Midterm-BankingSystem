@@ -11,7 +11,7 @@ import java.util.Date;
 public abstract class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @AttributeOverrides({
             @AttributeOverride(name = "amount", column = @Column(name = "balance")),
             @AttributeOverride(name = "currency", column = @Column(name = "balance_currency"))
@@ -30,11 +30,12 @@ public abstract class Account {
     @Enumerated
     private Status status;
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

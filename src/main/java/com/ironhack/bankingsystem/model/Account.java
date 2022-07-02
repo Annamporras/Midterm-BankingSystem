@@ -3,6 +3,7 @@ package com.ironhack.bankingsystem.model;
 import com.ironhack.bankingsystem.enums.Status;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 

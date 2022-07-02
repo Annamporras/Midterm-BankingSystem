@@ -22,9 +22,12 @@ public class SecurityConfiguration {
         http.httpBasic();
         http.csrf().disable();
         http.authorizeHttpRequests()
-               // .antMatchers(HttpMethod.GET,"/hello-world" , "/hello-user").authenticated()
-                .antMatchers(HttpMethod.GET, "/hello-user").authenticated()
-                .antMatchers(HttpMethod.GET, "/hello/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/accounts/{id}/balance").hasAnyRole("ADMIN", "ACCOUNT_HOLDER")
+               // .antMatchers(HttpMethod.GET, "/hello-user").authenticated()
+               // .antMatchers(HttpMethod.GET, "/hello/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "accounts/checking-account/new").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "accounts/saving-account/new").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "accounts/credit-card-account/new").hasRole("ADMIN")
               //  .antMatchers(HttpMethod.POST, "/hello-post").hasAnyRole("ADMIN", "TECHNICIAN")
                 .anyRequest().permitAll();
         return http.build();

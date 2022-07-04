@@ -2,22 +2,35 @@ package com.ironhack.bankingsystem.DTO;
 
 import com.ironhack.bankingsystem.model.Money;
 
+import java.math.BigDecimal;
+import java.util.Currency;
+
 public class AccountBalanceDTO {
 
-    private Money balance;
+    private BigDecimal balance;
+    private Currency currency;
 
     public AccountBalanceDTO() {
     }
 
-    public AccountBalanceDTO(Money balance) {
+    public AccountBalanceDTO(BigDecimal balance, Currency currency) {
         this.balance = balance;
+        this.currency = currency;
     }
 
-    public Money getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Money balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
     }
 }

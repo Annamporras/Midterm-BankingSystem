@@ -22,13 +22,16 @@ public class SecurityConfiguration {
         http.httpBasic();
         http.csrf().disable();
         http.authorizeHttpRequests()
-                .antMatchers(HttpMethod.GET,"/accounts/{id}/balance").hasAnyRole("ADMIN", "ACCOUNT_HOLDER")
+                .antMatchers(HttpMethod.GET,"/balance/{id}").hasAnyRole("ADMIN", "ACCOUNT_HOLDER")
                // .antMatchers(HttpMethod.GET, "/hello-user").authenticated()
                // .antMatchers(HttpMethod.GET, "/hello/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "accounts/checking-account/new").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "accounts/saving-account/new").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "accounts/credit-card-account/new").hasRole("ADMIN")
-              //  .antMatchers(HttpMethod.POST, "/hello-post").hasAnyRole("ADMIN", "TECHNICIAN")
+                .antMatchers(HttpMethod.POST, "/accounts/checking-account/new").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/accounts/savings-account/new").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/accounts/creditcard-account/new").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/change-status/{id}").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/change-balance/{id}").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "delete/{id}").hasRole("ADMIN")
+                //  .antMatchers(HttpMethod.POST, "/hello-post").hasAnyRole("ADMIN", "TECHNICIAN")
                 .anyRequest().permitAll();
         return http.build();
     }
@@ -42,15 +45,5 @@ public class SecurityConfiguration {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
-    /*@Bean
-    public UserDetailsService userDetailsService(){
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("password")
-                .roles("ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(user);
-    }*/
 
 }

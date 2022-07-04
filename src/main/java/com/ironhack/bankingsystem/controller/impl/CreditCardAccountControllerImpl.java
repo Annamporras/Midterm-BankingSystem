@@ -19,7 +19,7 @@ public class CreditCardAccountControllerImpl implements CreditCardAccountControl
     @Autowired
     private CreditCardService creditCardService;
     //importar servicio
-    @PostMapping("/credit-card-account/new")
+    @PostMapping("accounts/creditcard-account/new")
     @ResponseStatus(HttpStatus.CREATED)
     public CreditCardAccount saveCreditCardAccount(@RequestBody @Valid CreditCardAccountDTO creditCardAccountDTO) {
         return creditCardService.store(creditCardAccountDTO);

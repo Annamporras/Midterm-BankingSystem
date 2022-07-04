@@ -21,6 +21,7 @@ public class CheckingAccount extends Account {
     public CheckingAccount() {
     }
 
+
     public CheckingAccount(Money minimumBalance, Money monthlyMaintenanceFee) {
         this.minimumBalance = minimumBalance;
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;

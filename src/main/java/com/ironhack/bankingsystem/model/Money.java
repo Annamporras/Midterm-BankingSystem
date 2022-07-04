@@ -14,6 +14,8 @@ public class Money {
     private final Currency currency;
     private BigDecimal amount;
 
+
+
     /**
      * Class constructor specifying amount, currency, and rounding
      **/
@@ -37,6 +39,9 @@ public class Money {
         this(amount, EUR, DEFAULT_ROUNDING);
     }
 
+    public Money() {
+        this.currency = Currency.getInstance("USD");
+    }
     public BigDecimal increaseAmount(Money money) {
         setAmount(this.amount.add(money.amount));
         return this.amount;
@@ -72,4 +77,6 @@ public class Money {
     public String toString() {
         return getCurrency().getSymbol() + " " + getAmount();
     }
+
+
 }

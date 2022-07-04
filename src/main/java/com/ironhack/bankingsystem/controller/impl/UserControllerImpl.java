@@ -13,7 +13,7 @@ public class UserControllerImpl implements UserController {
     @GetMapping("/hello-user")
     @ResponseStatus(HttpStatus.OK)
     public String helloUser(@AuthenticationPrincipal CustomUserDetails userDetails) {
-userDetails.getUser().getUserId();
+    userDetails.getUser().getUserId();
         return "Hello " + userDetails.getUser().getUsername();
     }
 }

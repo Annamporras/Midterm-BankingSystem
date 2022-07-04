@@ -9,11 +9,12 @@ import com.ironhack.bankingsystem.repository.UserRepository;
 import com.ironhack.bankingsystem.service.interfaces.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.awt.desktop.OpenFilesEvent;
 import java.util.Optional;
-
+@RestController
 public class AccountServiceImpl implements AccountService {
 
     @Autowired

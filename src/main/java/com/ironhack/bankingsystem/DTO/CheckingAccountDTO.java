@@ -19,6 +19,17 @@ public class CheckingAccountDTO {
     @NotNull(message = "Account's Secret Key must be specified")
     private String secretKey;
 
+    public CheckingAccountDTO() {
+    }
+
+    public CheckingAccountDTO(BigDecimal balance, Currency currency, Integer primaryOwner, Integer secondaryOwner, String secretKey) {
+        this.balance = balance;
+        this.currency = currency;
+        this.primaryOwner = primaryOwner;
+        this.secondaryOwner = secondaryOwner;
+        this.secretKey = secretKey;
+    }
+
     public BigDecimal getBalance() {
         return balance;
     }

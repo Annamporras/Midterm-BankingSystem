@@ -23,15 +23,12 @@ public class SecurityConfiguration {
         http.csrf().disable();
         http.authorizeHttpRequests()
                 .antMatchers(HttpMethod.GET,"/balance/{id}").hasAnyRole("ADMIN", "ACCOUNT_HOLDER")
-               // .antMatchers(HttpMethod.GET, "/hello-user").authenticated()
-               // .antMatchers(HttpMethod.GET, "/hello/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/accounts/checking-account/new").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/accounts/savings-account/new").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/accounts/creditcard-account/new").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PATCH, "/change-status/{id}").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PATCH, "/change-balance/{id}").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "delete/{id}").hasRole("ADMIN")
-                //  .antMatchers(HttpMethod.POST, "/hello-post").hasAnyRole("ADMIN", "TECHNICIAN")
                 .anyRequest().permitAll();
         return http.build();
     }

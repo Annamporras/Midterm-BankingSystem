@@ -44,7 +44,6 @@ private AccountHolderRepository accountHolderRepository;
         }
         creditCardAccount.setSecondaryOwner(optionalSecondaryOwner.get());
 
-
         return creditCardAccountRepository.save(creditCardAccount);
     }
 }
